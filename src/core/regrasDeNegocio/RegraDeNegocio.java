@@ -50,8 +50,7 @@ public class RegraDeNegocio {
 								});
 								System.out.println("Total Venda: R$" + venda.getValor());
 								System.out.println("Total Taxa a ser paga: R$" + venda.getComissaoSistema());
-								System.out.println("Total Líquido  para empresa"
-										+ (venda.getValor() - venda.getComissaoSistema()));
+								System.out.println("Total Líquido  para empresa: R$ " +  usuarioLogado.getEmpresa().getSaldo());
 								System.out.println("************************************************************");
 							}
 
@@ -180,7 +179,7 @@ public class RegraDeNegocio {
 		Double comissaoSistema = total * empresa.getTaxa();
 		int idVenda = vendas.isEmpty() ? 1 : vendas.get(vendas.size() - 1).getCódigo() + 1;
 		Venda venda = new Venda(idVenda, carrinho.stream().toList(), total, comissaoSistema, empresa, cliente);
-		empresa.setSaldo(empresa.getSaldo() + total);
+		empresa.setSaldo(empresa.getSaldo() + total* (1- empresa.getTaxa()));
 		vendas.add(venda);
 		return venda;
 	}
