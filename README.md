@@ -14,10 +14,13 @@
 
 -> Erro na regra de negocio: A empresa deve vender apenas produtos que ela esteja relacionada
                              O codigo estava com um erro de verificacao, para isso a solucao é verificar se a empresa atual é a mesma que está vendendo o produto.
+                             Foi solucionado na classe UsuarioService na linha 64 'produtoSearch.getEmpresa().comparador(empresaAtual[0])'
+                             Para isso tambem foi criado um comparador na Entidade Empresa
                              STATUS: Corrigido
 
 -> Erro funcionamento estoque: O estoque das empresas nao estava sendo diminuido apos cada compra 
                                 O Codigo nao diminuia o estoque, para isso a solucao foi fazer o setQuantidade(getQuantidade -1) ENQUANTO o estoque do produto seja > 0
+                                classe UsuarioService: linha 67 'produtoSearch.setQuantidade(produtoSearch.getQuantidade() -1);'
                                 STATUS: Corrigido
 
 -> Tratamento de erro: Opcao Invalida
