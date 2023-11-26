@@ -61,3 +61,4 @@
                                 usuario -> usuarioComum, usuarioEmpresa, usuarioAdmin
                     
 
+-> Criacao de um id: Uma boa pratica é a criacação de um id para as todas as entidades, facilitando o manuseamento delas.
