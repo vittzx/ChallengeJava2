@@ -12,9 +12,6 @@ public class Venda {
 	private Empresa empresa;
 	private Cliente cliente;
 
-	private Double valorComComissao;
-
-
 	public Venda(Integer código, List<Produto> itens, Double valor, Double comissaoSistema, Empresa empresa, Cliente cliente) {
 		super();
 		this.código = código;
@@ -23,7 +20,6 @@ public class Venda {
 		this.comissaoSistema = comissaoSistema;
 		this.empresa = empresa;
 		this.cliente = cliente;
-		this.valorComComissao = valor * (1 + comissaoSistema);
 	}
 
 	public Venda() {
@@ -80,12 +76,8 @@ public class Venda {
 		this.comissaoSistema = comissaoSistema;
 	}
 
-		public Double getValorComComissao() {
-		return valorComComissao;
+	@Override
+	public String toString(){
+		return "Empresa: "+this.empresa.getNome() +"\nTotal: " + this.valor + "\nComissao: " + this.comissaoSistema; 
 	}
-
-	public void setValorComComissao(Double valorComComissao) {
-		this.valorComComissao = valorComComissao;
-	}
-
 }

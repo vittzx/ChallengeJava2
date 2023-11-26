@@ -130,7 +130,7 @@ public class RegraDeNegocio {
 								.filter(x -> x.getUsername().equals(usuarioLogado.getUsername()))
 								.collect(Collectors.toList()).get(0);
 						Venda venda = criarVenda(carrinho, empresaEscolhida, clienteLogado, vendas);
-						System.out.println("Total: R$" + venda.getValor());
+						System.out.println(venda);
 						System.out.println("************************************************************");
 						carrinho.clear();
 						executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
@@ -148,11 +148,7 @@ public class RegraDeNegocio {
 								venda.getItens().stream().forEach(x -> {
 									System.out.println(x.getId() + " - " + x.getNome() + "    R$" + x.getPreco());
 								});
-                                // adicionando o valor com comissao
-                                
-								System.out.println("Total Produtos: R$" + venda.getValor());
-								System.out.println("Comissão: R$" + venda.getComissaoSistema() * venda.getValor());
-								System.out.println("Total com comissão: R$" + venda.getValorComComissao());
+                                System.out.println(venda);
 
 								System.out.println("************************************************************");
 							}
@@ -176,6 +172,7 @@ public class RegraDeNegocio {
 		} else {
 			System.out.println("Usuário não encontrado");
 		}
+        sc.close();
 	}
 
 	public static Venda criarVenda(List<Produto> carrinho, Empresa empresa, Cliente cliente, List<Venda> vendas) {
