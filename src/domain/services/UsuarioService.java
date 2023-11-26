@@ -11,6 +11,9 @@ import domain.Venda;
 
 public class UsuarioService {
     
+    /**
+     * Lista as opcoes do usuario
+     */
     public static void opcoesUsuario(){
         System.out.println("1 - Relizar Compras");
         System.out.println("2 - Ver Compras");

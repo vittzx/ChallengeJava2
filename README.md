@@ -1,19 +1,11 @@
 # Erros encontrados.
 
--> Ao iniciar o programa, as regras de negocio estão no programa Main, que isso dificulta caso a manutenibilidade do codigo caso seja necessario
-
-
--> Outro erro, ao ver as tag do tipo CASE do executar, estao sem o break; no final
+-> Erro, ao ver as tag do tipo CASE do executar, estao sem o break; no final
     STATUS: CORRIGIDO
 
 -> Scanner nunca fechado no executar.
     colocar sc.close no final da funcao executar
     STATUS: CORRIGIDO
--> Compras não tem comissão de taxa para as empresas.
-    STATUS: CORRIGIDO
-
-OBS: Para todas as regras de negocio, o correto seria a criação de uma interface e criar uma classe para cada regra de negocio, para facilitar a 
-    manutenibilidade.
 
 -> Erro na regra de negocio: O saldo da empresa deve ser alterado já refletindo as taxas
    No relatorio de vendas da empresa, o saldo nao vem com a taxa imbutida.
@@ -35,16 +27,34 @@ OBS: Para todas as regras de negocio, o correto seria a criação de uma interfa
                             tela de efetuar compra sem perder seu histórico
                             STATUS:  Não corrigido
 
+# NOVAS IMPLEMENTAÇÕES
+
+
 -> Implementação Admin: 
                     Foi implementado para o usuario login listar todas as vendas, consultar os saldos das empresas, ver todos os produtos alem de realizar compras
                     STATUS: Implementado
 
-Refatorando Codigo: Criado a pasta services para referir-se a todos os servicoes das entidades presentes no codigo.
-                    Cases que estavam com muitas informações agora são funções nas classes Service.
-                    Classes Services Presentes| UsuarioService, EmpresaService.
+-> Impletação Ultimo usuario:
+                    A Ideia é colocar uma nova feature no login, para que o segundo login no sistemas e seus sucessores, o usuario possa reaproveitar o login antigo para nao precisar logar novamente. 
+                    A Logica do login esta quase feita, resta porem esta dando um erro de logica.
+                    OBS: O codigo a ser implementado esta comentado no inicio da funcao executar na classe RegraDeNegocio. Linha 26 ate 54.
+
+                    STATUS: A fazer | Não Implementado
+
+
+
+
+# BOAS PRÁTICAS                    
+
+
+-> Documentacao do  Codigo: As classes Services foram documentadas com o proprio Java Comment para que seja melhor visualização das funcoes caso outros programadores desejem fazer
+                              manutencao do codigo
+                    
+-> Refatorando Pastas: Arquitetura Limpa
+                    Foi mudado o sistemas de alocacao de arquivos para um novo estilo de pastas, para que fique melhor a visualização, organização e prevenção de erros.
+                    Tambem foi criada as classes Services, que indicam os serviços das entidades e suas funcoes, para reduzir o codigo no metodo executar e faciliar caso exista uma manutanção futura ou uma nova funcionalidade no codigo.
+
+-> Criacao de uma classe Abstrata: Uma boa pratica eh criar uma classe abstrata, para que seja de modelo para as outras classes
+                                usuario -> usuarioComum, usuarioEmpresa, usuarioAdmin
                     
 
-Sugestão: Manter o usuario logado apos realizar a compra, pois se a cada compra ele for obrigado a cadastrar-se novamente pode 
-          prejudicar a experiencia do usuario.
-          Para a solucao disso, seria ideal guardar o ultimo usuario e colocar uma opcao de 'deseja continuar com o mesmo\n1- sim\2-nao3-sair'
-          e assim verifica se ele deseja manter o mesmo, alterar ou ate mesmo sair do sistema.

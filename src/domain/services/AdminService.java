@@ -8,7 +8,10 @@ import domain.Usuario;
 import domain.Venda;
 
 public class AdminService {
-    
+    /**
+     * Lista as opcoes do admin
+     * 
+     */
     public static void opcoesAdmin(){
         System.out.println("1 - Listar vendas");
         System.out.println("2 - Consultar Saldos das Empresas");
@@ -16,7 +19,12 @@ public class AdminService {
         System.out.println("0 - Deslogar");
     }
 
-
+    /**
+     * Lista as vendas ocorrido em todo sistema
+     * @param usuarioLogado
+     * @param vendas
+     * @param empresas
+     */
     public static void listarVendasAdmin(Usuario usuarioLogado, List<Venda> vendas, List<Empresa> empresas){
         System.out.println();
         System.out.println("************************************************************");
@@ -37,7 +45,10 @@ public class AdminService {
         System.out.println("************************************************************");
     }
 
-
+    /**
+     * Consulta os saldos de todas as empresas presentes do sistema
+     * @param empresas
+     */
     public static void consultarSaldosEmpresas(List<Empresa> empresas) {
         System.out.println("************************************************************");
         System.out.println("SALDOS DAS EMPRESAS");
@@ -53,7 +64,10 @@ public class AdminService {
         System.out.println("************************************************************");
     }
 
-
+    /**
+     * Lista Todos os produtos disponiveis em todas as empresas 
+     * @param produtos
+     */
     public static void listarProdutos(List<Produto> produtos) {
         System.out.println("************************************************************");
         System.out.println("Produtos disponiveis");

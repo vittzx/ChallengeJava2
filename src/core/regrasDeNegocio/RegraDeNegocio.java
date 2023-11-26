@@ -1,5 +1,6 @@
 package core.regrasDeNegocio;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -14,15 +15,49 @@ import domain.services.AdminService;
 import domain.services.UsuarioService;
 
 public class RegraDeNegocio {
+
+
     	public static void executar(List<Usuario> usuarios, List<Cliente> clientes, List<Empresa> empresas,
 			List<Produto> produtos, List<Produto> carrinho, List<Venda> vendas) {
+
+        
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Entre com seu usuário e senha:");
+        // private static List<String> ultimoUsuario = new ArrayList<>();
+        // String username = ""; 
+        // String senha = "";
+        // int escolhaLogin = 0;
+
+        // if(ultimoUsuario.size() > 0){
+        //     System.out.println("Deseja usar o ultimo login?");
+        //     System.out.println("1 - sim");
+        //     System.out.println("2 - nao");
+        //     escolhaLogin = sc.nextInt();
+        //     if(escolhaLogin == 1){
+        //         username = ultimoUsuario.get(0);
+        //         senha = ultimoUsuario.get(1);
+        //     }
+        // }
+
+        
+        // if(escolhaLogin == 0 || ultimoUsuario.size() == 0){
+        //     System.out.println("Entre com seu usuário e senha:");
+        //     System.out.print("Usuário: ");
+        //     String finalUsername = sc.next();
+        //     System.out.print("Senha: ");
+        //     senha = sc.next();
+        //     username = finalUsername;
+        //     ultimoUsuario.add(0,username);
+        //     ultimoUsuario.add(1,senha);
+
+        // }
+
+        System.out.println("Entre com seu usuário e senha:");
 		System.out.print("Usuário: ");
 		String username = sc.next();
 		System.out.print("Senha: ");
 		String senha = sc.next();
+        
 		
 
 		List<Usuario> usuariosSearch = usuarios.stream().filter(x -> x.getUsername().equals(username))
