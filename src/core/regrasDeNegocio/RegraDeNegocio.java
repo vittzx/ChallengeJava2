@@ -86,7 +86,11 @@ public class RegraDeNegocio {
 						executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
                         break;
 
-					}
+					    }
+                    default:
+                        System.out.println("Opcao invalida");
+                        executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
+                        break;
 					}
 
 				} else {
@@ -111,10 +115,12 @@ public class RegraDeNegocio {
 							});
 							System.out.println("0 - Finalizar compra");
 							escolhaProduto = sc.nextInt();
+
 							for (Produto produtoSearch : produtos) {
 								if (produtoSearch.getId().equals(escolhaProduto))
 									carrinho.add(produtoSearch);
 							}
+
 						} while (escolhaProduto != 0);
 						System.out.println("************************************************************");
 						System.out.println("Resumo da compra: ");
@@ -161,6 +167,11 @@ public class RegraDeNegocio {
 						executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
                         break;
 
+					}
+                    default:{
+                        System.out.println("Opcao invalida");
+                        executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
+                        break;
 					}
 
 					}
