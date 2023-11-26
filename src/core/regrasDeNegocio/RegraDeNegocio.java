@@ -32,9 +32,7 @@ public class RegraDeNegocio {
 
 				System.out.println("Escolha uma opção para iniciar");
 				if (usuarioLogado.IsEmpresa()) {
-					System.out.println("1 - Listar vendas");
-					System.out.println("2 - Ver produtos");
-					System.out.println("0 - Deslogar");
+                    EmpresaService.opcoesUsuarioEmpresa();
 
 					Integer escolha = sc.nextInt();
 
