@@ -7,14 +7,12 @@ import domain.Usuario;
 import domain.Venda;
 
 public class EmpresaService {
-
     
     public static void opcoesUsuarioEmpresa() {
         System.out.println("1 - Listar vendas");
         System.out.println("2 - Ver produtos");
         System.out.println("0 - Deslogar");
     }
-
     
     public static void verProdutos(Usuario usuarioLogado, List<Produto> produtos){
         System.out.println();

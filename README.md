@@ -4,8 +4,13 @@
 
 
 -> Outro erro, ao ver as tag do tipo CASE do executar, estao sem o break; no final
+    STATUS: CORRIGIDO
+
 -> Scanner nunca fechado no executar.
+    colocar sc.close no final da funcao executar
+    STATUS: CORRIGIDO
 -> Compras não tem comissão de taxa para as empresas.
+    STATUS: CORRIGIDO
 
 OBS: Para todas as regras de negocio, o correto seria a criação de uma interface e criar uma classe para cada regra de negocio, para facilitar a 
     manutenibilidade.
@@ -30,8 +35,13 @@ OBS: Para todas as regras de negocio, o correto seria a criação de uma interfa
                             tela de efetuar compra sem perder seu histórico
                             STATUS:  Não corrigido
 
+-> Implementação Admin: 
+                    Foi implementado para o usuario login listar todas as vendas, consultar os saldos das empresas, ver todos os produtos alem de realizar compras
+                    STATUS: Implementado
+
 Refatorando Codigo: Criado a pasta services para referir-se a todos os servicoes das entidades presentes no codigo.
                     Cases que estavam com muitas informações agora são funções nas classes Service.
+                    Classes Services Presentes| UsuarioService, EmpresaService.
                     
 
 Sugestão: Manter o usuario logado apos realizar a compra, pois se a cada compra ele for obrigado a cadastrar-se novamente pode 

@@ -10,6 +10,7 @@ import core.services.EmpresaService;
 import domain.Produto;
 import domain.Usuario;
 import domain.Venda;
+import domain.services.AdminService;
 import domain.services.UsuarioService;
 
 public class RegraDeNegocio {
@@ -58,7 +59,35 @@ public class RegraDeNegocio {
                         break;
 					}
 
-				} else {
+				} 
+                
+                else if(usuarioLogado.IsAdmin()){
+                    AdminService.opcoesAdmin();
+                    Integer escolha = sc.nextInt();
+
+                    switch ((escolha)) {
+                        case 1:
+                            AdminService.listarVendasAdmin(usuarioLogado, vendas, empresas);
+                            executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
+                            break;
+                        case 2:
+                            AdminService.consultarSaldosEmpresas(empresas);
+                            executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
+                            break;
+
+                        case 3:
+                            executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
+                            break;
+                        case 4:
+                            executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
+                            break;
+                    
+                        default:
+                            break;
+                    }
+
+                }
+                else {
                     UsuarioService.opcoesUsuario();
 
 					Integer escolha = sc.nextInt();
