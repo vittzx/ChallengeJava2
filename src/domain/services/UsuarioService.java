@@ -1,5 +1,6 @@
 package domain.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +18,12 @@ public class UsuarioService {
     }
 
 
-
+    /**
+     * Funcao para escolher o id da empresa
+     * @param empresas
+     * @param sc
+     * @return id da empresa escolhida
+     */
     public static Integer escolherEmpresa(List<Empresa> empresas, Scanner sc){
         System.out.println("Para realizar uma compra, escolha a empresa onde deseja comprar: ");
         empresas.stream().forEach(x -> {
@@ -27,7 +33,17 @@ public class UsuarioService {
         return escolhaEmpresa;
     }
 
-    public static List<Produto> escolherProdutos(List<Produto> carrinho, List<Produto> produtos , Integer escolhaEmpresa, Scanner sc){
+    /**
+     * Funcao para a escolha de produtos
+     * 
+     * @param carrinho
+     * @param produtos
+     * @param escolhaEmpresa
+     * @param sc
+     * @return Lista com carrinho (indice 0) e produtos (indice 1)
+     */
+    public static List<List<Produto>> escolherProdutos(List<Produto> carrinho, List<Produto> produtos , Integer escolhaEmpresa, Scanner sc){
+        List<List<Produto>> listaFinal = new ArrayList<>();
         Integer escolhaProduto = -1;
         Empresa[] empresaAtual = {null};
 		do {
@@ -43,11 +59,19 @@ public class UsuarioService {
 
 			for (Produto produtoSearch : produtos) {
 				if (produtoSearch.getId().equals(escolhaProduto) && produtoSearch.getEmpresa().comparador(empresaAtual[0]))
-					carrinho.add(produtoSearch);
+                    if(produtoSearch.getQuantidade() > 0){
+                        carrinho.add(produtoSearch);
+                        produtoSearch.setQuantidade(produtoSearch.getQuantidade() -1);
+                    }
+					else{
+                        System.out.println("Produto esgotado!");
+                    }
 			}
 
 		} while (escolhaProduto != 0);
-        return carrinho;
+        listaFinal.add(carrinho);
+        listaFinal.add(produtos);
+        return listaFinal;
     }
 
     public static void resumoCompra(List<Produto> carrinho, Integer escolhaEmpresa){

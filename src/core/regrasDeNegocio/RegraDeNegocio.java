@@ -65,7 +65,10 @@ public class RegraDeNegocio {
 					switch (escolha) {
 					case 1: {
 						Integer escolhaEmpresa = UsuarioService.escolherEmpresa(empresas, sc);
-                        carrinho = UsuarioService.escolherProdutos(carrinho, produtos, escolhaEmpresa, sc);
+                        List<List<Produto>> listaFinal = UsuarioService.escolherProdutos(carrinho, produtos, escolhaEmpresa, sc);
+                        carrinho = listaFinal.get(0);
+                        produtos = listaFinal.get(1);
+
                         UsuarioService.resumoCompra(carrinho, escolhaEmpresa);
 
 						Empresa empresaEscolhida = empresas.stream().filter(x -> x.getId().equals(escolhaEmpresa))
@@ -92,19 +95,21 @@ public class RegraDeNegocio {
                         break;
 
 					}
-                    default:{
+                    default: 
                         System.out.println("Opcao invalida");
                         executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
                         break;
-					}
+					
 
 					}
 				}
 
 			} else
 				System.out.println("Senha incorreta");
+                executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
 		} else {
 			System.out.println("Usuário não encontrado");
+            executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
 		}
         sc.close();
 	}
