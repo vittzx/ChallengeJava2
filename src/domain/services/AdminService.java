@@ -3,6 +3,7 @@ package domain.services;
 import java.util.List;
 
 import core.Empresa;
+import domain.Produto;
 import domain.Usuario;
 import domain.Venda;
 
@@ -12,7 +13,6 @@ public class AdminService {
         System.out.println("1 - Listar vendas");
         System.out.println("2 - Consultar Saldos das Empresas");
         System.out.println("3 - Ver produtos");
-        System.out.println("4 - Relizar Compras");
         System.out.println("0 - Deslogar");
     }
 
@@ -46,11 +46,30 @@ public class AdminService {
             System.out.println("Empresa: " + empresa.getNome());
             System.out.println("CNPJ: " + empresa.getCnpj());
             System.out.println("Saldo: " + empresa.getSaldo());
-            System.out.println("Taxa: " + empresa.getTaxa() * 100 +  "%");
+            System.out.println("Taxa sobre o produto: " + empresa.getTaxa() * 100 +  "%");
 
         });
 
         System.out.println("************************************************************");
+    }
+
+
+    public static void listarProdutos(List<Produto> produtos) {
+        System.out.println("************************************************************");
+        System.out.println("Produtos disponiveis");
+        produtos.stream().forEach(produto -> {
+            System.out.println("************************************************************");
+            System.out.println("Empresa responsavel do produto: " + produto.getEmpresa().getNome());
+             System.out.println("Produto: " + produto.getNome());
+            if(produto.getQuantidade() == 0){
+                System.out.println("Produto: " + produto.getNome());
+                System.out.println("STATUS: ESGOTADO");
+            }else{
+                System.out.println("STATUS: DISPONIVEL");
+                System.out.println("Quantidade: "+  produto.getQuantidade());
+            }
+        });
+
     }
 
 

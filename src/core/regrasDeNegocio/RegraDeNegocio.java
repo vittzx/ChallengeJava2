@@ -76,9 +76,7 @@ public class RegraDeNegocio {
                             break;
 
                         case 3:
-                            executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
-                            break;
-                        case 4:
+                            AdminService.listarProdutos(produtos);
                             executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
                             break;
                     
