@@ -10,6 +10,7 @@ import core.services.EmpresaService;
 import domain.Produto;
 import domain.Usuario;
 import domain.Venda;
+import domain.services.UsuarioService;
 
 public class RegraDeNegocio {
     	public static void executar(List<Usuario> usuarios, List<Cliente> clientes, List<Empresa> empresas,
@@ -65,42 +66,17 @@ public class RegraDeNegocio {
 					Integer escolha = sc.nextInt();
 					switch (escolha) {
 					case 1: {
-						System.out.println("Para realizar uma compra, escolha a empresa onde deseja comprar: ");
-						empresas.stream().forEach(x -> {
-							System.out.println(x.getId() + " - " + x.getNome());
-						});
-						Integer escolhaEmpresa = sc.nextInt();
-						Integer escolhaProduto = -1;
-                        Empresa[] empresaAtual = {null};
-						do {
-							System.out.println("Escolha os seus produtos: ");
-							produtos.stream().forEach(x -> {
-								if (x.getEmpresa().getId().equals(escolhaEmpresa)) {
-                                    empresaAtual[0] = x.getEmpresa();
-									System.out.println(x.getId() + " - " + x.getNome());
-								}
-							});
-							System.out.println("0 - Finalizar compra");
-							escolhaProduto = sc.nextInt();
+						Integer escolhaEmpresa = UsuarioService.escolherEmpresa(empresas, sc);
+                        carrinho = UsuarioService.escolherProdutos(carrinho, produtos, escolhaEmpresa, sc);
+                        UsuarioService.resumoCompra(carrinho, escolhaEmpresa);
 
-							for (Produto produtoSearch : produtos) {
-								if (produtoSearch.getId().equals(escolhaProduto) && produtoSearch.getEmpresa().comparador(empresaAtual[0]))
-									carrinho.add(produtoSearch);
-							}
-
-						} while (escolhaProduto != 0);
-						System.out.println("************************************************************");
-						System.out.println("Resumo da compra: ");
-						carrinho.stream().forEach(x -> {
-							if (x.getEmpresa().getId().equals(escolhaEmpresa)) {
-								System.out.println(x.getId() + " - " + x.getNome() + "    R$" + x.getPreco());
-							}
-						});
 						Empresa empresaEscolhida = empresas.stream().filter(x -> x.getId().equals(escolhaEmpresa))
 								.collect(Collectors.toList()).get(0);
+
 						Cliente clienteLogado = clientes.stream()
 								.filter(x -> x.getUsername().equals(usuarioLogado.getUsername()))
 								.collect(Collectors.toList()).get(0);
+
 						Venda venda = criarVenda(carrinho, empresaEscolhida, clienteLogado, vendas);
 						System.out.println(venda);
 						System.out.println("************************************************************");
@@ -109,24 +85,7 @@ public class RegraDeNegocio {
                         break;
 					}
 					case 2: {
-						System.out.println();
-						System.out.println("************************************************************");
-						System.out.println("COMPRAS EFETUADAS");
-						vendas.stream().forEach(venda -> {
-							if (venda.getCliente().getUsername().equals(usuarioLogado.getUsername())) {
-								System.out.println("************************************************************");
-								System.out.println("Compra de código: " + venda.getCódigo() + " na empresa "
-										+ venda.getEmpresa().getNome() + ": ");
-								venda.getItens().stream().forEach(x -> {
-									System.out.println(x.getId() + " - " + x.getNome() + "    R$" + x.getPreco());
-								});
-                                System.out.println(venda);
-
-								System.out.println("************************************************************");
-							}
-
-						});
-
+                        UsuarioService.consultarCompras(vendas, usuarioLogado);
 						executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
                         break;
 					}
