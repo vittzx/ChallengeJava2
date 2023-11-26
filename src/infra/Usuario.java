@@ -1,3 +1,6 @@
+package infra;
+import core.Cliente;
+import core.Empresa;
 
 public class Usuario {
 	private String username;

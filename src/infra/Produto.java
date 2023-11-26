@@ -1,3 +1,5 @@
+package infra;
+import core.Empresa;
 
 public class Produto {
 	private Integer id;

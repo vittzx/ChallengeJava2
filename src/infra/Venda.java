@@ -1,4 +1,8 @@
+package infra;
 import java.util.List;
+
+import core.Cliente;
+import core.Empresa;
 
 public class Venda {
 	private Integer código;
@@ -8,6 +12,9 @@ public class Venda {
 	private Empresa empresa;
 	private Cliente cliente;
 
+	private Double valorComComissao;
+
+
 	public Venda(Integer código, List<Produto> itens, Double valor, Double comissaoSistema, Empresa empresa, Cliente cliente) {
 		super();
 		this.código = código;
@@ -16,6 +23,7 @@ public class Venda {
 		this.comissaoSistema = comissaoSistema;
 		this.empresa = empresa;
 		this.cliente = cliente;
+		this.valorComComissao = valor * (1 + comissaoSistema);
 	}
 
 	public Venda() {
@@ -70,6 +78,14 @@ public class Venda {
 
 	public void setComissaoSistema(Double comissaoSistema) {
 		this.comissaoSistema = comissaoSistema;
+	}
+
+		public Double getValorComComissao() {
+		return valorComComissao;
+	}
+
+	public void setValorComComissao(Double valorComComissao) {
+		this.valorComComissao = valorComComissao;
 	}
 
 }

@@ -1,3 +1,4 @@
+package core;
 
 public class Cliente {
 	private String cpf;
