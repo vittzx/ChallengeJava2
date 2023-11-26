@@ -35,6 +35,7 @@ public class RegraDeNegocio {
 					System.out.println("1 - Listar vendas");
 					System.out.println("2 - Ver produtos");
 					System.out.println("0 - Deslogar");
+
 					Integer escolha = sc.nextInt();
 
 					switch (escolha) {
@@ -60,9 +61,8 @@ public class RegraDeNegocio {
 					}
 
 				} else {
-					System.out.println("1 - Relizar Compras");
-					System.out.println("2 - Ver Compras");
-					System.out.println("0 - Deslogar");
+                    UsuarioService.opcoesUsuario();
+
 					Integer escolha = sc.nextInt();
 					switch (escolha) {
 					case 1: {
@@ -120,4 +120,6 @@ public class RegraDeNegocio {
 		vendas.add(venda);
 		return venda;
 	}
+
+
 }

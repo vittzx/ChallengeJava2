@@ -10,6 +10,14 @@ import domain.Venda;
 
 public class UsuarioService {
     
+    public static void opcoesUsuario(){
+        System.out.println("1 - Relizar Compras");
+        System.out.println("2 - Ver Compras");
+        System.out.println("0 - Deslogar");
+    }
+
+
+
     public static Integer escolherEmpresa(List<Empresa> empresas, Scanner sc){
         System.out.println("Para realizar uma compra, escolha a empresa onde deseja comprar: ");
         empresas.stream().forEach(x -> {
