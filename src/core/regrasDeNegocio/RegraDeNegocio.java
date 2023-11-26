@@ -148,7 +148,12 @@ public class RegraDeNegocio {
 								venda.getItens().stream().forEach(x -> {
 									System.out.println(x.getId() + " - " + x.getNome() + "    R$" + x.getPreco());
 								});
-								System.out.println("Total: R$" + venda.getValor());
+                                // adicionando o valor com comissao
+                                
+								System.out.println("Total Produtos: R$" + venda.getValor());
+								System.out.println("Comissão: R$" + venda.getComissaoSistema() * venda.getValor());
+								System.out.println("Total com comissão: R$" + venda.getValorComComissao());
+
 								System.out.println("************************************************************");
 							}
 

@@ -9,6 +9,3 @@
 OBS: Para todas as regras de negocio, o correto seria a criação de uma interface e criar uma classe para cada regra de negocio, para facilitar a 
     manutenibilidade.
 
-
-
-# 
