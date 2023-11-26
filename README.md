@@ -13,15 +13,24 @@ OBS: Para todas as regras de negocio, o correto seria a criação de uma interfa
 -> Erro na regra de negocio: O saldo da empresa deve ser alterado já refletindo as taxas
    No relatorio de vendas da empresa, o saldo nao vem com a taxa imbutida.
    Corrigido no metodo 'criarVenda' na 'empresa.setSaldo()' linha 182, adicionando taxa da empresa no valor total da venda.
+   STATUS: Corrigido
+
+-> Erro na regra de negocio: A empresa deve vender apenas produtos que ela esteja relacionada
+                             O codigo estava com um erro de verificacao, para isso a solucao é verificar se a empresa atual é a mesma que está vendendo o produto.
+                             STATUS: Corrigido
+
+
 
 -> Tratamento de erro: Opcao Invalida
                         Caso o usuario digite uma opcao invalida, voltara a tela inicial.
                         OBS: Nao é a melhor opcao para tratar o erro de opcao invalida, o correto é redirecionar o usuario para a tela que ele ja estava, 
                         Ex: Se o usuario tivesse na tela de efetuar uma compra e digita o id do produto errado, o correto é lançar a excessão e voltar a para a
                             tela de efetuar compra sem perder seu histórico
+                            STATUS:  Não corrigido
 
 Refatorando Codigo: Criado a pasta services para referir-se a todos os servicoes das entidades presentes no codigo.
                     Cases que estavam com muitas informações agora são funções nas classes Service.
+                    
 
 Sugestão: Manter o usuario logado apos realizar a compra, pois se a cada compra ele for obrigado a cadastrar-se novamente pode 
           prejudicar a experiencia do usuario.

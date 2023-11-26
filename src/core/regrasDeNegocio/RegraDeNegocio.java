@@ -71,10 +71,12 @@ public class RegraDeNegocio {
 						});
 						Integer escolhaEmpresa = sc.nextInt();
 						Integer escolhaProduto = -1;
+                        Empresa[] empresaAtual = {null};
 						do {
 							System.out.println("Escolha os seus produtos: ");
 							produtos.stream().forEach(x -> {
 								if (x.getEmpresa().getId().equals(escolhaEmpresa)) {
+                                    empresaAtual[0] = x.getEmpresa();
 									System.out.println(x.getId() + " - " + x.getNome());
 								}
 							});
@@ -82,7 +84,7 @@ public class RegraDeNegocio {
 							escolhaProduto = sc.nextInt();
 
 							for (Produto produtoSearch : produtos) {
-								if (produtoSearch.getId().equals(escolhaProduto))
+								if (produtoSearch.getId().equals(escolhaProduto) && produtoSearch.getEmpresa().comparador(empresaAtual[0]))
 									carrinho.add(produtoSearch);
 							}
 

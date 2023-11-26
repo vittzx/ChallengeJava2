@@ -60,4 +60,9 @@ public class Empresa {
 		this.saldo = saldo;
 	}
 
+	
+	public boolean comparador(Empresa outraEmpresa){
+		return this.nome == outraEmpresa.getNome();
+	}
+
 }
