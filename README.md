@@ -19,7 +19,9 @@ OBS: Para todas as regras de negocio, o correto seria a criação de uma interfa
                              O codigo estava com um erro de verificacao, para isso a solucao é verificar se a empresa atual é a mesma que está vendendo o produto.
                              STATUS: Corrigido
 
-
+-> Erro funcionamento estoque: O estoque das empresas nao estava sendo diminuido apos cada compra 
+                                O Codigo nao diminuia o estoque, para isso a solucao foi fazer o setQuantidade(getQuantidade -1) ENQUANTO o estoque do produto seja > 0
+                                STATUS: Corrigido
 
 -> Tratamento de erro: Opcao Invalida
                         Caso o usuario digite uma opcao invalida, voltara a tela inicial.
