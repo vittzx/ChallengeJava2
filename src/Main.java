@@ -6,9 +6,9 @@ import java.util.List;
 import core.Cliente;
 import core.Empresa;
 import core.regrasDeNegocio.RegraDeNegocio;
-import infra.Produto;
-import infra.Usuario;
-import infra.Venda;
+import domain.Produto;
+import domain.Usuario;
+import domain.Venda;
 
 public class Main {
 

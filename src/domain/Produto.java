@@ -1,4 +1,4 @@
-package infra;
+package domain;
 import core.Empresa;
 
 public class Produto {

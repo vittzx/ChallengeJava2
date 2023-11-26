@@ -2,9 +2,9 @@ package core.services;
 
 import java.util.List;
 
-import infra.Produto;
-import infra.Usuario;
-import infra.Venda;
+import domain.Produto;
+import domain.Usuario;
+import domain.Venda;
 
 public class EmpresaService {
     

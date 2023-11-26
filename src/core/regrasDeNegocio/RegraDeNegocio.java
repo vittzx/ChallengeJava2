@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 import core.Cliente;
 import core.Empresa;
 import core.services.EmpresaService;
-import infra.Produto;
-import infra.Usuario;
-import infra.Venda;
+import domain.Produto;
+import domain.Usuario;
+import domain.Venda;
 
 public class RegraDeNegocio {
     	public static void executar(List<Usuario> usuarios, List<Cliente> clientes, List<Empresa> empresas,

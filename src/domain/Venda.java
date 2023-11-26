@@ -1,4 +1,4 @@
-package infra;
+package domain;
 import java.util.List;
 
 import core.Cliente;
