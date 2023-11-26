@@ -20,7 +20,8 @@ OBS: Para todas as regras de negocio, o correto seria a criação de uma interfa
                         Ex: Se o usuario tivesse na tela de efetuar uma compra e digita o id do produto errado, o correto é lançar a excessão e voltar a para a
                             tela de efetuar compra sem perder seu histórico
 
-
+Refatorando Codigo: Criado a pasta services para referir-se a todos os servicoes das entidades presentes no codigo.
+                    Cases que estavam com muitas informações agora são funções nas classes Service.
 
 Sugestão: Manter o usuario logado apos realizar a compra, pois se a cada compra ele for obrigado a cadastrar-se novamente pode 
           prejudicar a experiencia do usuario.
