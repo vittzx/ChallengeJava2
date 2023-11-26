@@ -13,3 +13,16 @@ OBS: Para todas as regras de negocio, o correto seria a criação de uma interfa
 -> Erro na regra de negocio: O saldo da empresa deve ser alterado já refletindo as taxas
    No relatorio de vendas da empresa, o saldo nao vem com a taxa imbutida.
    Corrigido no metodo 'criarVenda' na 'empresa.setSaldo()' linha 182, adicionando taxa da empresa no valor total da venda.
+
+-> Tratamento de erro: Opcao Invalida
+                        Caso o usuario digite uma opcao invalida, voltara a tela inicial.
+                        OBS: Nao é a melhor opcao para tratar o erro de opcao invalida, o correto é redirecionar o usuario para a tela que ele ja estava, 
+                        Ex: Se o usuario tivesse na tela de efetuar uma compra e digita o id do produto errado, o correto é lançar a excessão e voltar a para a
+                            tela de efetuar compra sem perder seu histórico
+
+
+
+Sugestão: Manter o usuario logado apos realizar a compra, pois se a cada compra ele for obrigado a cadastrar-se novamente pode 
+          prejudicar a experiencia do usuario.
+          Para a solucao disso, seria ideal guardar o ultimo usuario e colocar uma opcao de 'deseja continuar com o mesmo\n1- sim\2-nao3-sair'
+          e assim verifica se ele deseja manter o mesmo, alterar ou ate mesmo sair do sistema.
